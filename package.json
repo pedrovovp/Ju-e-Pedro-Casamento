@@ -1,0 +1,12 @@
+{
+  "name": "casamento-juliana-pedro",
+  "version": "1.0.0",
+  "description": "Site do casamento de Juliana & Pedro - 19 de Março de 2026",
+  "main": "index.html",
+  "scripts": {
+    "start": "index.html"
+  },
+  "keywords": ["casamento", "wedding", "juliana", "pedro"],
+  "author": "Juliana & Pedro",
+  "license": "MIT"
+}
