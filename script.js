@@ -1,6 +1,6 @@
 // Funcionalidade para copiar a chave PIX
 function copyPixKey() {
-    const pixKey = "pedrovovp@hotmail.com";
+    const pixKey = "70520769180";
     
     // Criar um elemento temporário para copiar o texto
     const tempInput = document.createElement("input");
