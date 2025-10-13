@@ -83,10 +83,11 @@ body {
 }
 
 .saint-image {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: top center;
     margin-bottom: 1rem;
     border: 3px solid var(--gold);
 }
@@ -94,7 +95,8 @@ body {
 .saint-quote {
     font-size: 1.1rem;
     font-style: italic;
-    color: var(--gold);
+    font-weight: bold;
+    color: #f4d03f;
     max-width: 400px;
     margin: 0 auto;
 }
@@ -167,7 +169,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -185,7 +187,7 @@ section {
 
 .pre-wedding-photo {
     width: 100%;
-    height: 400px;
+    height: 500px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
@@ -273,12 +275,21 @@ section {
 }
 
 .reception-info {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 3rem;
+    display: flex;
+    justify-content: center;
     align-items: center;
     max-width: 800px;
     margin: 0 auto;
+}
+
+.reception-info .location-info {
+    text-align: center;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
 }
 
 /* Gift Section */
@@ -288,7 +299,7 @@ section {
 
 .pix-info {
     text-align: center;
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto;
 }
 
@@ -300,13 +311,13 @@ section {
 
 .pix-container {
     background: var(--white);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .pix-key {
@@ -317,7 +328,7 @@ section {
     font-size: 1rem;
     color: var(--primary-green);
     margin-bottom: 0.5rem;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .pix-value {
@@ -331,14 +342,15 @@ section {
     background: var(--gold);
     color: var(--white);
     border: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.7rem 1.2rem;
     border-radius: 25px;
     cursor: pointer;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .copy-pix-btn:hover {
@@ -438,8 +450,8 @@ section {
     }
     
     .saint-image {
-        width: 100px;
-        height: 100px;
+        width: 140px;
+        height: 140px;
     }
 }
 
