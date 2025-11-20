@@ -1,10 +1,11 @@
-.hero {
-    background-image: url('path/to/your/image.jpg');
+.hero-section {
+    background-image: url('pre wedding 1.jpg');
     background-size: cover;
+    background-position: center;
     position: relative;
 }
 
-.hero::after {
+.hero-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -12,10 +13,4 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-.hero h1, .hero p {
-    position: relative;
-    z-index: 2;
 }
