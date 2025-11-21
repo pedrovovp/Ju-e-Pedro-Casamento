@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juliana & Pedro - 19 de Março de 2026</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#cerimonia">Localização</a></li>
+                <li><a href="#presentes">Presentes</a></li>
+                <li><a href="#confirmacao" class="confirm-link">Confirmar Presença</a></li>
+            </ul>
+        </div>
+    </nav>
     <!-- Header com nome dos noivos -->
     <header class="hero-section">
         <div class="container">
@@ -20,7 +33,8 @@
                 </div>
                 <div class="saint-joseph">
                     <img src="são josé.jpg" alt="São José com o Menino Jesus" class="saint-image">
-                    <p class="saint-quote">"São José, esposo de Maria e pai adotivo de Jesus, abençoe nossa união"</p>
+                    <p class="saint-quote">"São José, esposo de Maria e pai adotivo de Jesus, abençoe
+                        nossa união"</p>
                 </div>
             </div>
         </div>
@@ -34,7 +48,7 @@
         <div class="container">
             <div class="photo-gallery">
                 <div class="photo-item">
-                    <img src="pre wedding 1.jpg" alt="Juliana & Pedro - Ensaio no barco" class="pre-wedding-photo">
+                    <img src="pre wedding 3.jpg" alt="Juliana & Pedro - Ensaio no deck" class="pre-wedding-photo">
                 </div>
                 <div class="photo-item">
                     <img src="pre wedding 2.jpg" alt="Juliana & Pedro - Ensaio no deck" class="pre-wedding-photo">
@@ -44,7 +58,7 @@
     </section>
 
     <!-- Seção da cerimônia -->
-    <section class="ceremony-section">
+    <section class="ceremony-section" id="cerimonia">
         <div class="container">
             <div class="section-header">
                 <i class="fas fa-church"></i>
@@ -79,7 +93,8 @@
                 <div class="location-info">
                     <h3>Local</h3>
                     <p class="venue-name">Jacaúna Eventos</p>
-                    <p class="address">Rua Leopoldo de Bulhões<br>Saída para Anápolis, Vila Santa Maria<br>Inhumas - GO, 75400-000</p>
+                    <p class="address">Rua Leopoldo de Bulhões<br>Saída para Anápolis, Vila Santa
+                        Maria<br>Inhumas - GO, 75400-000</p>
                     <a href="https://share.google/aSQph2nY2rs5Lomwn" target="_blank" class="map-link">
                         <i class="fas fa-map-marker-alt"></i>
                         Ver no Google Maps
@@ -90,14 +105,15 @@
     </section>
 
     <!-- Seção PIX -->
-    <section class="gift-section">
+    <section class="gift-section" id="presentes">
         <div class="container">
             <div class="section-header">
                 <i class="fas fa-gift"></i>
                 <h2 class="section-title">Presentes</h2>
             </div>
             <div class="pix-info">
-                <p class="gift-message">Sua presença é o nosso maior presente!<br>Se desejar nos presentear, aceitamos contribuições via PIX:</p>
+                <p class="gift-message">Sua presença é o nosso maior presente!<br>Se desejar nos
+                    presentear, aceitamos contribuições via PIX:</p>
                 <div class="pix-container">
                     <div class="pix-key">
                         <p class="pix-label">Chave PIX:</p>
@@ -108,19 +124,29 @@
                         Copiar
                     </button>
                 </div>
+                <!-- Bloco lista de presentes -->
+                <div class="gift-list">
+                    <p class="gift-list-message">Se preferir escolher um presente, acesse nossa
+                        lista:</p>
+                    <a href="https://forms.gle/xFjjKhTJR49oPzkD6" target="_blank" rel="noopener"
+                        class="gift-list-button">
+                        <i class="fas fa-list"></i> Lista de Presentes
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Seção de confirmação de presença -->
-    <section class="rsvp-section">
+    <section class="rsvp-section" id="confirmacao">
         <div class="container">
             <div class="section-header">
                 <i class="fas fa-heart"></i>
                 <h2 class="section-title">Confirmação de Presença</h2>
             </div>
             <div class="rsvp-info">
-                <p class="rsvp-message">Para confirmar sua presença em nosso casamento, por favor preencha o formulário:</p>
+                <p class="rsvp-message">Para confirmar sua presença em nosso casamento, por favor
+                    preencha o formulário:</p>
                 <a href="https://forms.gle/YHs65bTi4CTrQ8BUA" class="rsvp-button" target="_blank">
                     <i class="fas fa-check-circle"></i>
                     Confirmar Presença
@@ -132,11 +158,13 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">Com amor, Juliana & Pedro</p>
+            <p class="footer-text">Salve Maria Imaculada</p>
+            <p class="footer-text">Juliana & Pedro</p>
             <p class="footer-date">19 de Março de 2026</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
