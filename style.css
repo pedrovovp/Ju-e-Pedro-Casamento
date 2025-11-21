@@ -123,11 +123,17 @@ body {
     box-shadow: 0 6px 16px rgba(45, 80, 22, 0.5); /* Sombra do hover revertida */
 }
 
+/* Ajuste de scroll para compensar navbar */
+section,
+header.hero-section {
+    scroll-margin-top: 80px;
+}
+
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
     /* Adicionado: imagem de fundo com overlay para todas as telas */
-    background: linear-gradient(rgba(45,80,22,0.6), rgba(74,124,89,0.6)), url("pre wedding 1.jpg") top/cover no-repeat;
+    background: linear-gradient(rgba(45,80,22,0.7), rgba(74,124,89,0.9)), url("pre wedding 1.jpg") top/cover no-repeat;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -188,12 +194,13 @@ body {
 }
 
 .saint-quote {
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Aumentado para melhor destaque */
     font-style: italic;
-    font-weight: bold;
-    color: #f4d03f;
-    max-width: 400px;
+    font-weight: 550; /* Peso mais leve para elegância */
+    color: var(--gold); /* Cor padronizada com o tema */
+    max-width: 450px;
     margin: 0 auto;
+    line-height: 1.7; /* Melhorando a legibilidade */
 }
 
 .scroll-indicator {
@@ -270,7 +277,7 @@ section {
     display: flex;
     gap: 2rem;
     margin: 0 auto;
-    transition: transform 0.5s ease-in-out;
+    /* A transição será aplicada apenas no mobile */
 }
 
 .photo-item {
@@ -279,7 +286,7 @@ section {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    flex: 1 0 100%;
+    flex: 1 1 0; /* Alterado para enfileirar as fotos no desktop */
 }
 
 .photo-item:hover {
@@ -545,6 +552,12 @@ section {
     padding: 3rem 0;
 }
 
+.footer-icon {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin: 2rem 0 0.5rem;
+}
+
 .footer-text {
     font-family: "Playfair Display", serif;
     font-size: 1.5rem;
@@ -556,7 +569,6 @@ section {
     font-size: 1.1rem;
     color: var(--gold);
 }
-
 /* Responsividade */
 @media (max-width: 768px) {
     .hero-section {
@@ -565,14 +577,35 @@ section {
 
     .nav-menu {
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 1.5rem; /* Reduzido para melhor espaçamento */
         justify-content: center;
         padding: 0.8rem 0;
+    }
+
+    /* Garante que o botão de confirmação ocupe a largura total */
+    .nav-menu li:last-child {
+        text-align: center;
     }
 
     .nav-menu a {
         font-size: 0.9rem;
         padding: 0.5rem;
+        display: flex; /* Adicionado para centralizar o ícone */
+        align-items: center; /* Adicionado para centralizar o ícone */
+        justify-content: center; /* Adicionado para centralizar o ícone */
+    }
+
+    /* Estilo para os botões de ícone */
+    .nav-menu li:not(:last-child) a {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        transition: background 0.3s ease;
+    }
+
+    .nav-menu li:not(:last-child) a:hover {
+        background: rgba(255, 255, 255, 0.3);
     }
 
     .nav-menu .nav-text {
@@ -581,24 +614,37 @@ section {
 
     .nav-menu .nav-icon {
         display: inline-block;
-        font-size: 1.5rem;
+        font-size: 1.2rem; /* Ajustado para caber no círculo */
         color: var(--gold);
     }
 
-    .nav-menu a:hover .nav-icon {
-        color: var(--dark-gold);
-    }
 
     .nav-menu a::after {
         display: none; /* Remove sublinhado no mobile */
     }
 
     .couple-names {
-        font-size: 2.5rem;
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6); /* Sombra de texto aprimorada */
+        letter-spacing: 2px;
     }
 
     .date-text {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--gold);
+        text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6); /* Sombra de texto adicionada */
+    }
+
+    .saint-mention {
+        font-size: 1.2rem;
+        font-style: italic;
+        opacity: 0.9;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Sombra de texto adicionada */
     }
 
     .section-title {
@@ -626,6 +672,11 @@ section {
 
     .photo-gallery {
         gap: 0;
+        transition: transform 0.5s ease-in-out; /* Transição para o carrossel */
+    }
+
+    .photo-item {
+        flex: 1 0 100%; /* Garante que cada item ocupe 100% para o carrossel */
     }
 
     .carousel-btn {
@@ -659,23 +710,5 @@ section {
     .saint-image {
         width: 140px;
         height: 140px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-
-    .couple-names {
-        font-size: 2rem;
-    }
-
-    section {
-        padding: 60px 0;
-    }
-
-    .time {
-        font-size: 2.5rem;
     }
 }
