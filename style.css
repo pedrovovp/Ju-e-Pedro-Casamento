@@ -123,12 +123,6 @@ body {
     box-shadow: 0 6px 16px rgba(45, 80, 22, 0.5); /* Sombra do hover revertida */
 }
 
-/* Ajuste de scroll para compensar navbar */
-section,
-header.hero-section {
-    scroll-margin-top: 80px;
-}
-
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
