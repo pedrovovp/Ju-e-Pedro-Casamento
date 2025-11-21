@@ -1,57 +1,82 @@
-// Função para copiar a chave PIX
-function copyPixKey() {
-    const pixKey = "705.207.691-80";
-    navigator.clipboard.writeText(pixKey).then(() => {
-        alert("Chave PIX copiada para a área de transferência!");
-    }).catch(err => {
-        console.error('Erro ao copiar a chave PIX: ', err);
-        alert("Não foi possível copiar a chave PIX.");
+document.addEventListener("DOMContentLoaded", function () {
+    // Animação de scroll para as seções
+    const sections = document.querySelectorAll("section, footer");
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: "0px 0px -100px 0px" // Inicia a animação um pouco antes de a seção estar totalmente visível
     });
-}
 
-// Lógica para ocultar/mostrar a navbar ao rolar
-const navbar = document.querySelector('.navbar');
-let lastScrollY = window.scrollY;
+    sections.forEach(section => {
+        section.classList.add("fade-in-section");
+        sectionObserver.observe(section);
+    });
 
-window.addEventListener('scroll', () => {
-    // Oculta a navbar ao rolar para baixo, mas apenas após rolar um pouco
-    if (lastScrollY < window.scrollY && window.scrollY > 100) {
-        navbar.classList.add('nav-hidden');
-    } else {
-        // Mostra a navbar ao rolar para cima
-        navbar.classList.remove('nav-hidden');
-    }
-    // Atualiza a última posição de rolagem
-    lastScrollY = window.scrollY;
-});
+    // Lógica para copiar a chave PIX
+    window.copyPixKey = function () {
+        const pixKey = "705.207.691-80";
+        navigator.clipboard.writeText(pixKey).then(() => {
+            const btn = document.querySelector(".copy-pix-btn");
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+            }, 2000);
+        }).catch(err => {
+            console.error("Erro ao copiar a chave PIX: ", err);
+        });
+    };
 
-// Lógica do Carrossel de Fotos
-document.addEventListener('DOMContentLoaded', () => {
-    const gallery = document.querySelector('.photo-gallery');
-    const items = document.querySelectorAll('.photo-item');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-
-    if (!gallery || !items.length || !prevBtn || !nextBtn) return;
-
+    // Lógica do carrossel de fotos
+    const gallery = document.querySelector(".photo-gallery");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
     let currentIndex = 0;
-    const totalItems = items.length;
 
-    function updateGallery() {
-        const width = items[0].clientWidth;
-        gallery.style.transform = `translateX(-${currentIndex * width}px)`;
+    function updateCarousel() {
+        const items = document.querySelectorAll(".photo-item");
+        if (items.length > 0) {
+            const itemWidth = items[0].clientWidth;
+            gallery.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
     }
 
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalItems;
-        updateGallery();
-    });
+    if (prevBtn && nextBtn && gallery) {
+        const items = document.querySelectorAll(".photo-item");
+        const totalItems = items.length;
 
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-        updateGallery();
-    });
+        nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        });
 
-    // Atualiza o carrossel se a janela for redimensionada
-    window.addEventListener('resize', updateGallery);
+        prevBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateCarousel();
+        });
+
+        window.addEventListener("resize", updateCarousel);
+    }
+
+    // Lógica para ocultar/mostrar a navbar no scroll
+    let lastScrollTop = 0;
+    const navbar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop && scrollTop > navbar.offsetHeight) {
+            // Scroll para baixo
+            navbar.classList.add("nav-hidden");
+        } else {
+            // Scroll para cima
+            navbar.classList.remove("nav-hidden");
+        }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
 });
