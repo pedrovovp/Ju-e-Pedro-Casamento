@@ -82,6 +82,10 @@ body {
     transition: color 0.3s ease;
 }
 
+.nav-menu .nav-icon {
+    display: none;
+}
+
 .nav-menu a::after {
     content: "";
     position: absolute;
@@ -262,11 +266,17 @@ section {
     background: var(--white);
 }
 
-.photo-gallery {
-    display: flex; /* Alterado de 'grid' para 'flex' */
-    gap: 2rem;
-    max-width: 900px; /* Aumentado para acomodar as fotos lado a lado */
+.photo-gallery-container {
+    position: relative;
+    max-width: 900px;
     margin: 0 auto;
+}
+
+.photo-gallery {
+    display: flex;
+    gap: 2rem;
+    margin: 0 auto;
+    transition: transform 0.5s ease-in-out;
 }
 
 .photo-item {
@@ -275,7 +285,7 @@ section {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    flex: 1 1 0; /* Adicionado para que as fotos dividam o espaço */
+    flex: 1 0 100%;
 }
 
 .photo-item:hover {
@@ -284,14 +294,17 @@ section {
 
 .pre-wedding-photo {
     width: 100%;
-    /* height: 500px; - Removido para ajustar a imagem */
     object-fit: cover;
     transition: transform 0.3s ease;
-    display: block; /* Garante que a imagem se comporte como um bloco */
+    display: block;
 }
 
 .photo-item:hover .pre-wedding-photo {
     transform: scale(1.05);
+}
+
+.carousel-btn {
+    display: none; /* Oculto por padrão */
 }
 
 /* Ceremony Section */
@@ -547,7 +560,7 @@ section {
 
 .footer-date {
     font-size: 1.1rem;
-    opacity: 0.8;
+    color: var(--gold);
 }
 
 /* Responsividade */
@@ -565,6 +578,25 @@ section {
 
     .nav-menu a {
         font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    .nav-menu .nav-text {
+        display: none;
+    }
+
+    .nav-menu .nav-icon {
+        display: inline-block;
+        font-size: 1.5rem;
+        color: var(--gold);
+    }
+
+    .nav-menu a:hover .nav-icon {
+        color: var(--dark-gold);
+    }
+
+    .nav-menu a::after {
+        display: none; /* Remove sublinhado no mobile */
     }
 
     .couple-names {
@@ -585,7 +617,6 @@ section {
         gap: 2rem;
     }
 
-    /* Adicionado: centralizar bloco Local da cerimônia */
     .ceremony-info .location-info {
         text-align: center;
     }
@@ -595,8 +626,36 @@ section {
         text-align: center;
     }
 
+    .photo-gallery-container {
+        overflow: hidden;
+    }
+
     .photo-gallery {
-        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .carousel-btn {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 0.8rem;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 10;
+        font-size: 1rem;
+        line-height: 1;
+    }
+
+    .prev-btn {
+        left: 10px;
+    }
+
+    .next-btn {
+        right: 10px;
     }
 
     .saint-joseph {
