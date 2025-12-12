@@ -545,6 +545,17 @@ section {
     box-shadow: 0 8px 25px rgba(45, 80, 22, 0.4);
 }
 
+.rsvp-note {
+    margin: 1.25rem auto 0;
+    font-size: 1rem;
+    max-width: 520px;
+    color: #566058;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    letter-spacing: 0.4px;
+    line-height: 1.8;
+}
+
 /* Footer */
 .footer {
     background: var(--black);
